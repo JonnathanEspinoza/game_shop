@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../layout/Navbar';
+import Navigation from '../layout/Navigation';
 
 const Search = () => {
     return (
         <div>
-            <Navbar/>
+            <Navigation/>
             <h2>This is the search component</h2>
         </div>
     )
