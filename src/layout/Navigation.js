@@ -2,7 +2,17 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar, NavItem } from 'reactstrap';
 
-const Navigation = () => {
+import { isAuthenticated, signout } from '../core/apiCore';
+
+const isActive = (history, path) => {
+    if (history.location.pathname === path) {
+        return { color: '#ff9900' }
+    } else {
+        return { color: '#ffffff' }
+    }
+}
+
+const Navigation = ({ history }) => {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,16 +34,44 @@ const Navigation = () => {
                         </ul>
 
                         <ul className="navbar-nav">
-                            <NavItem className="nav-link">
-                                <Link className="nav-link" to="/signup">
-                                    Singup
-                                </Link>
-                            </NavItem>
-                            <NavItem className="nav-link">
-                                <Link className="nav-link" to="/signin">
-                                    Login
-                                </Link>
-                            </NavItem>
+                            {!isAuthenticated() && (
+                                <>
+                                    <NavItem className="nav-link">
+                                        <Link className="nav-link" to="/signup">
+                                            Singup
+                                        </Link>
+                                    </NavItem>
+                                    <NavItem className="nav-link">
+                                        <Link className="nav-link" to="/signin">
+                                            Login
+                                        </Link>
+                                    </NavItem>
+                                </>
+                            )}
+                            {isAuthenticated() && (
+                                <>
+                                    <NavItem className="nav-link">
+                                        <Link className="nav-link" to="/">
+                                            Add Category
+                                        </Link>
+                                    </NavItem>
+                                    <NavItem className="nav-link">
+                                        <Link className="nav-link" to="/">
+                                            Add Videogame
+                                        </Link>
+                                    </NavItem>
+                                    <NavItem className="nav-link">
+                                        <Link
+                                            
+                                            onClick={() =>
+                                                signout(() => {
+                                                    history.push("/");
+                                                })} className="nav-link">
+                                            Logout
+                                        </Link>
+                                    </NavItem>
+                                </>
+                            )}
                         </ul>
                     </div>
                 </div>
@@ -42,4 +80,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation;
+export default withRouter(Navigation);
