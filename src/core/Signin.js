@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect} from 'react-router-dom';
 import Navigation from '../layout/Navigation';
 
-import { signin, authenticate, isAuthenticated } from './apiCore';
+import { signinG, authenticate, isAuthenticated } from './apiCore';
 
 import './Signin.css';
 
@@ -26,7 +26,7 @@ const Sigin = () => {
     const clickSubmit = e => {
         e.preventDefault();
         setValues({ ...values, error: false, loading: true });
-        signin({ email, password })
+        signinG({ email, password })
             .then(data => {
                 if (data.error) {
                     setValues({ ...values, error: data.error, loading: false });

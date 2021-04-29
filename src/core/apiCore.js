@@ -1,6 +1,7 @@
 import { API } from '../config';
 import axios from 'axios';
 
+// get all videogames
 export const getVideogames = async () => {
     try {
         const response = await axios.get(`${API}/videogame/videogames`);
@@ -11,6 +12,7 @@ export const getVideogames = async () => {
     }
 }
 
+// signin whit Axios. Error: validate the reponse error
 export const signin = async (user) => {
     try {
         const response = await axios.post(`${API}/auth/signin`, user);
@@ -21,6 +23,7 @@ export const signin = async (user) => {
     }
 }
 
+// sign in whit fetch
 export const signinG = user => {
     return fetch(`${API}/auth/signin`, {
         method: 'POST',
@@ -47,6 +50,7 @@ export const authenticate = (data, next) => {
     }
 }
 
+// sign out
 export const signout = (next) => {
     if (typeof window !== 'undefined') {
         localStorage.removeItem('jwt');
@@ -59,6 +63,20 @@ export const signout = (next) => {
             })
             .catch(err => console.log(err));
     }
+}
+
+// signip
+export const sigup = user => {
+    return fetch(`${API}/auth/signup`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(response => response.json())
+        .catch(err => console.log(err));
 }
 
 // validate
