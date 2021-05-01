@@ -56,8 +56,8 @@ const Navigation = ({ history }) => {
                                         </Link>
                                     </NavItem>
                                     <NavItem className="nav-link">
-                                        <Link className="nav-link" to="/addproduct">
-                                            Add Product
+                                        <Link className="nav-link" to="/addvideogame">
+                                            Add Videogame
                                         </Link>
                                     </NavItem>
                                     <NavItem className="nav-link">

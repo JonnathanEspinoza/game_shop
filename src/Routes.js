@@ -7,7 +7,7 @@ import Search from './core/Search';
 import Signup from './core/Signup';
 import Signin from './core/Signin';
 import AddCategory from './core/AddCategory';
-import AddProduct from './core/AddProduct';
+import AddVideogame from './core/AddVideogame';
 
 const Routes = () => {
     return (
@@ -18,7 +18,7 @@ const Routes = () => {
                 <Route path="/signin" exact component={Signin} />
                 <Route path="/signup" exact component={Signup} />
                 <Route path="/addcategory" exact component={AddCategory} />
-                <Route path="/addproduct" exact component={AddProduct} />
+                <Route path="/addvideogame" exact component={AddVideogame} />
             </Switch>
         </BrowserRouter>
     )

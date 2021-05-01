@@ -57,20 +57,19 @@ const Sigin = () => {
         </form>
     );
 
-    // esto no funciona por ello se agrego en el return
     const showError = () => (
         <div className='alert alert-danger' role="alert" style={{ display: error ? '' : 'none' }}>
             {error}
         </div>
     )
 
-    const showLoading = () => (
+    const showLoading = () => 
         loading && (
             <div className="alert alert-info">
                 <h2>Loading...</h2>
             </div>
         )
-    )
+    
 
     const redirectUser = () => {
         if (redirectToReferrer) {

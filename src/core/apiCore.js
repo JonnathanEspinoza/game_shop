@@ -1,7 +1,7 @@
 import { API } from '../config';
 import axios from 'axios';
 
-// get all videogames
+// get all videogames with Axios
 export const getVideogames = async () => {
     try {
         const response = await axios.get(`${API}/videogame/videogames`);
@@ -12,7 +12,31 @@ export const getVideogames = async () => {
     }
 }
 
-// signin whit Axios. Error: validate the reponse error
+// get all videogames with fetch
+export const getVideogamesFetch = () => {
+    return fetch(
+        `${API}/videogame/videogames`,
+        {
+            method: 'GET'
+        }
+    )
+        .then(response => {
+            console.log(response)
+            return response.json()
+        })
+        .catch(err => console.log(err))
+}
+
+export const read = (videogameId) => {
+    return fetch(`${API}/videogame/${videogameId}`, {
+        method: "GET"
+    }).then(response => {
+        return response.json();
+    })
+        .catch(err => console.log(err))
+}
+
+// signin with Axios. Error: validate the reponse error
 export const signin = async (user) => {
     try {
         const response = await axios.post(`${API}/auth/signin`, user);
@@ -23,7 +47,7 @@ export const signin = async (user) => {
     }
 }
 
-// sign in whit fetch
+// sign in with fetch
 export const signinG = user => {
     return fetch(`${API}/auth/signin`, {
         method: 'POST',
@@ -65,7 +89,7 @@ export const signout = (next) => {
     }
 }
 
-// signip
+// signup
 export const sigup = user => {
     return fetch(`${API}/auth/signup`, {
         method: 'POST',
@@ -103,4 +127,46 @@ export const createCategory = (userId, token, category) => {
     })
         .then(response => response.json())
         .catch(err => console.log(err))
+}
+
+// get all categories with Axios
+export const getCategoriesA = async () => {
+    try {
+        const response = await axios.get(`${API}/category/categories`);
+        return response.data;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// get all categories with Fetch
+export const getCategories = () => {
+    return fetch(`${API}/category/categories`, {
+        method: 'GET'
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+
+// create a videogame
+export const createVideogame = (userId, token, videogame) => {
+    return fetch(`${API}/videogame/create/`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: videogame
+    })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
