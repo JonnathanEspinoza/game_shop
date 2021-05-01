@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Navigation from '../layout/Navigation';
 
 import { signinG, authenticate, isAuthenticated } from './apiCore';
@@ -57,19 +57,20 @@ const Sigin = () => {
         </form>
     );
 
-    const showError = () => {
-        <div className='alert alert-danget' role="alert" style={{ display: error ? '' : 'none' }}>
+    // esto no funciona por ello se agrego en el return
+    const showError = () => (
+        <div className='alert alert-danger' role="alert" style={{ display: error ? '' : 'none' }}>
             {error}
         </div>
-    }
+    )
 
-    const showLoading = () => {
+    const showLoading = () => (
         loading && (
             <div className="alert alert-info">
                 <h2>Loading...</h2>
             </div>
         )
-    }
+    )
 
     const redirectUser = () => {
         if (redirectToReferrer) {

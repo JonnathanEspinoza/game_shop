@@ -76,7 +76,7 @@ export const sigup = user => {
         body: JSON.stringify(user)
     })
         .then(response => response.json())
-        .catch(err => console.log(err));
+        .catch(error => console.log(error))
 }
 
 // validate
@@ -88,4 +88,19 @@ export const isAuthenticated = () => {
         return JSON.parse(localStorage.getItem('jwt'));
     }
     return false;
+}
+
+// create a category
+export const createCategory = (userId, token, category) => {
+    return fetch(`${API}/category/create/${userId}`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Autorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(category)
+    })
+        .then(response => response.json())
+        .catch(err => console.log(err))
 }

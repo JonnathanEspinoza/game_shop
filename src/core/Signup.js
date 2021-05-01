@@ -60,18 +60,18 @@ const Signup = () => {
         </form>
     );
 
-    const showError = () => {
+    const showError = () => (
         <div className='alert alert-danger' style={{ display: error ? '' : 'none' }} >
             {error}
         </div>
-    }
+    )
 
-    const showSuccess = () => {
-        <div className='alert alert-info' style={{display: success ? '':'none'}} role="alert">
+    const showSuccess = () => (
+        <div className='alert alert-info' style={{ display: success ? '' : 'none' }} role="alert">
             New Account Successfully Created You can now
             <Link to='signin'>Sign in</Link>
         </div>
-    }
+    )
 
     return (
         <>

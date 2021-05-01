@@ -51,13 +51,13 @@ const Navigation = ({ history }) => {
                             {isAuthenticated() && (
                                 <>
                                     <NavItem className="nav-link">
-                                        <Link className="nav-link" to="/">
+                                        <Link className="nav-link" to="/addcategory">
                                             Add Category
                                         </Link>
                                     </NavItem>
                                     <NavItem className="nav-link">
-                                        <Link className="nav-link" to="/">
-                                            Add Videogame
+                                        <Link className="nav-link" to="/addproduct">
+                                            Add Product
                                         </Link>
                                     </NavItem>
                                     <NavItem className="nav-link">
