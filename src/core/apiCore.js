@@ -27,6 +27,7 @@ export const getVideogamesFetch = () => {
         .catch(err => console.log(err))
 }
 
+// get info of the videogame
 export const read = (videogameId) => {
     return fetch(`${API}/videogame/${videogameId}`, {
         method: "GET"

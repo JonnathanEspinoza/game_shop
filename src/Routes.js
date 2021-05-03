@@ -8,13 +8,14 @@ import Signup from './core/Signup';
 import Signin from './core/Signin';
 import AddCategory from './core/AddCategory';
 import AddVideogame from './core/AddVideogame';
+import Videogame from './core/Videogame';
 
 const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/videogameById" exact component={Search} />
+                <Route path="/videogame/:videogameId" exact component={Videogame} />
                 <Route path="/signin" exact component={Signin} />
                 <Route path="/signup" exact component={Signup} />
                 <Route path="/addcategory" exact component={AddCategory} />
