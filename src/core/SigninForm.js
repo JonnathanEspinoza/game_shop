@@ -9,6 +9,8 @@ import * as yup from "yup";
 import Navigation from '../layout/Navigation';
 import { Redirect } from 'react-router-dom';
 import { signinG, authenticate, isAuthenticated } from './apiCore'
+import Loading from './Loading';
+import { Spinner } from 'reactstrap';
 
 import './Signin.css';
 
@@ -84,9 +86,7 @@ const SignInForm = () => {
     // shows loading when submit is executing
     const showLoading = () => 
         loading && (
-            <div className="alert alert-info">
-                <h2>Loading...</h2>
-            </div>
+            <Loading/>
         )
 
     // redirects to the main page if the user is logged in
